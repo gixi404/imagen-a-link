@@ -78,7 +78,7 @@ export default function Form({ addToHistory }: Props): Component {
   return (
     <form
       onSubmit={onSubmit}
-      className="w-full max-w-lg px-4 md:px-6 py-6 md:py-8 flex flex-col items-center md:items-start justify-between gap-y-10 sm:rounded-sm bg-gray-800 border-y-2 sm:border-2 border-indigo-300/50 relative"
+      className="w-full max-w-lg px-4 md:px-6 py-6 md:py-8 flex flex-col items-center md:items-start justify-between gap-y-5 sm:gap-y-10 sm:rounded-sm bg-gray-800 border-b-2 sm:border-2 border-indigo-300/50 relative"
     >
       <button
         type="button"
@@ -115,7 +115,7 @@ export default function Form({ addToHistory }: Props): Component {
       {showSetting && <SettingPopup onClose={() => setShowSetting(false)} />}
       <BlurLoader loadingLink={loadingLink} showSuccess={showSuccess} />
 
-      <h1 className="text-3xl md:text-4xl text-balance font-bold text-center w-full text-white">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl text-balance font-bold text-center w-full text-white">
         <span className="text-indigo-300">Imagen</span>&nbsp;a&nbsp;
         <span className="text-indigo-300">Link</span>
       </h1>
@@ -137,19 +137,19 @@ export default function Form({ addToHistory }: Props): Component {
           <img
             src={URL.createObjectURL(acceptedFiles[0])}
             alt="Imagen generada"
-            className="h-28 sm:h-full w-2/6 max-w-36 self-center rounded-sm"
+            className="h-[150px] sm:h-full w-2/6 max-w-36 self-center rounded-sm"
           />
         ) : lastFile ? (
           <img
             src={URL.createObjectURL(lastFile)}
             alt="Imagen generada"
-            className="h-28 sm:h-full w-2/6 max-w-36 self-center rounded-sm"
+            className="h-[150px] sm:h-full w-2/6 max-w-36 self-center rounded-sm"
           />
         ) : (
           <img
             src={coverImage}
             alt="Imagen por defecto"
-            className="h-28 sm:h-full w-2/6 max-w-36 self-center rounded-sm"
+            className="h-[150px] sm:h-full w-2/6 max-w-36 self-center rounded-sm"
           />
         )}
       </section>
@@ -170,7 +170,9 @@ export default function Form({ addToHistory }: Props): Component {
           "w-full flex flex-col justify-center items-start gap-y-1"
         )}
       >
-        <h2 className="text-xl font-semibold text-gray-100">Nuevo Link:</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-100">
+          Nuevo Link:
+        </h2>
         <div className="flex justify-center items-center w-full">
           <div className="p-2 w-full h-12 overflow-y-hidden overflow-x-auto bg-gray-200 flex justify-center items-center border-y-2 border-x-2 rounded-l-sm border-indigo-600 relative">
             <a
@@ -178,7 +180,7 @@ export default function Form({ addToHistory }: Props): Component {
                 newLink == defaultUrl
                   ? "text-indigo-800/90 pointer-events-none"
                   : "text-indigo-800 hover:text-indigo-500 hover:underline",
-                "tracking-tighter w-full text-start text-lg whitespace-nowrap"
+                "tracking-tighter w-full text-start text-sm sm:text-lg whitespace-nowrap"
               )}
               href={newLink == defaultUrl ? "" : newLink}
               target="_blank"

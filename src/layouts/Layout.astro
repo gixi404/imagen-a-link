@@ -18,6 +18,7 @@
         document.documentElement.classList.add("dark");
       }
     </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Convierte imagenes a links" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
@@ -41,7 +42,7 @@
     />
   </head>
   <body
-    class="bg-slate-950 pb-12 flex flex-col items-center justify-center h-full w-full font-mono gap-y-12"
+    class="bg-slate-950 pb-12 flex flex-col items-start sm:items-center justify-center h-full w-full font-mono gap-y-0 sm:gap-y-12"
   >
     <moaqz-toaster position="top-right"></moaqz-toaster>
     <slot />

@@ -10,8 +10,10 @@ export default function History({ history }: Props): Component {
   if (!isVisible || !history || history.length == 0) return <></>;
 
   return (
-    <section className="w-full max-w-lg">
-      <h2 className="text-2xl font-semibold text-indigo-500 mb-2">Historial</h2>
+    <section className="w-full md:max-w-lg px-4 sm:px-0">
+      <h2 className="text-xl sm:text-2xl font-semibold text-indigo-500 mb-2 mt-6 sm:mt-0">
+        Historial
+      </h2>
       <ul className="flex flex-col gap-y-2">
         {history
           .sort((a, b) => b.createdAt.localeCompare(a.createdAt))

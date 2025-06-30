@@ -52,11 +52,11 @@ export default function SettingPopup({ onClose }: Props): Component {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-[999] pb-16 flex items-center justify-center bg-black/40 backdrop-blur-xl text-slate-100"
+      className="fixed inset-0 z-[999] sm:pb-16 flex items-start sm:items-center justify-center bg-black/40 backdrop-blur-xl text-slate-100"
     >
       <div
         onClick={(e: Event) => e.stopPropagation()}
-        className="bg-slate-800 rounded-md shadow-lg px-10 h-[350px] w-full max-w-lg relative flex flex-col items-center justify-center"
+        className="bg-slate-800 sm:rounded-md px-10 h-[350px] w-full max-w-lg relative flex flex-col items-center justify-center"
       >
         <button
           type="button"
@@ -156,22 +156,22 @@ export default function SettingPopup({ onClose }: Props): Component {
                 />
               </svg>
             </div>
-            <footer class="flex w-full text-slate-300 items-center justify-between text-xs mt-6">
+            <footer class="flex flex-col gap-y-2 sm:flex-row w-full text-slate-300 items-start sm:items-center justify-between text-xs mt-4 sm:mt-6">
               <a
                 target="_blank"
                 href="https://github.com/gixi404/imagen-a-link"
-                class="opacity-80 hover:underline cursor-default hover:opacity-100"
+                class="opacity-80 hover:underline cursor-default hover:opacity-100 text-start"
               >
                 Repositorio de GitHub
               </a>
               <button
                 type="button"
                 onClick={() => setPP(true)}
-                class="opacity-80 hover:underline cursor-default hover:opacity-100"
+                class="opacity-80 hover:underline cursor-default hover:opacity-100 text-start"
               >
                 Política de Privacidad
               </button>
-            </footer>{" "}
+            </footer>
           </>
         )}
       </div>
