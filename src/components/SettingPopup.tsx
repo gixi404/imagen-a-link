@@ -29,9 +29,9 @@ export default function SettingPopup({ onClose }: Props): Component {
 
     if (newValue) {
       document.body.classList.add("bg-slate-950");
-      document.body.classList.remove("bg-slate-400");
+      document.body.classList.remove("bg-slate-300");
     } else {
-      document.body.classList.add("bg-slate-400");
+      document.body.classList.add("bg-slate-300");
       document.body.classList.remove("bg-slate-950");
     }
     location.reload();

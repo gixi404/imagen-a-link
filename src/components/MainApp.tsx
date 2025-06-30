@@ -11,9 +11,9 @@ export default function MainApp(): Component {
     const dark = storedDark === null ? true : JSON.parse(storedDark);
     if (dark) {
       document.body.classList.add("bg-slate-950");
-      document.body.classList.remove("bg-slate-400");
+      document.body.classList.remove("bg-slate-300");
     } else {
-      document.body.classList.add("bg-slate-400");
+      document.body.classList.add("bg-slate-300");
       document.body.classList.remove("bg-slate-950");
     }
     if (stored) setHistory(JSON.parse(stored));
