@@ -8,13 +8,15 @@
     </script>
     <script>
       try {
-        const dark: string = JSON.parse(
-          localStorage.getItem("dark-mode") ?? "true"
-        );
-        if (!dark) {
-          document.body.classList.add("!bg-slate-300");
+        const dark = JSON.parse(localStorage.getItem("dark-mode") ?? "true");
+        if (dark) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
         }
-      } catch {}
+      } catch {
+        document.documentElement.classList.add("dark");
+      }
     </script>
     <meta name="description" content="Convierte imagenes a links" />
     <meta property="og:url" content={Astro.url} />

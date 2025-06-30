@@ -12,7 +12,7 @@ export default function BlurLoader({
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="size-40"
+            className="size-30"
           >
             <path
               d="M12 6.5L12 17.5M12 17.5L16 12.9118M12 17.5L8 12.9118"

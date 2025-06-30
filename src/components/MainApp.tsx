@@ -7,6 +7,15 @@ export default function MainApp(): Component {
 
   useEffect(() => {
     const stored: string | null = localStorage.getItem("links");
+    const storedDark = localStorage.getItem("dark-mode");
+    const dark = storedDark === null ? true : JSON.parse(storedDark);
+    if (dark) {
+      document.body.classList.add("bg-slate-950");
+      document.body.classList.remove("bg-slate-400");
+    } else {
+      document.body.classList.add("bg-slate-400");
+      document.body.classList.remove("bg-slate-950");
+    }
     if (stored) setHistory(JSON.parse(stored));
   }, []);
 

@@ -1,19 +1,14 @@
 import { useEffect, useState } from "preact/hooks";
-import type { Component } from "./MainApp";
+import type { Component, Timer } from "./MainApp";
 
 export default function SettingPopup({ onClose }: Props): Component {
   const [showPP, setPP] = useState<boolean>(false);
-  const [showHistory, setShowHistory] = useState<boolean>(true);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
-
-  useEffect(() => {
-    setShowHistory(
-      JSON.parse(localStorage.getItem("show-history") as string) ?? true
-    );
-    setDarkMode(
-      JSON.parse(localStorage.getItem("dark-mode") as string) ?? true
-    );
-  }, []);
+  const [showHistory, setShowHistory] = useState<boolean>(
+    JSON.parse(localStorage.getItem("show-history") ?? "true")
+  );
+  const [darkMode, setDarkMode] = useState<boolean>(
+    JSON.parse(localStorage.getItem("dark-mode") ?? "true")
+  );
 
   function clearHistory(): void {
     localStorage.removeItem("links");
@@ -27,15 +22,17 @@ export default function SettingPopup({ onClose }: Props): Component {
     setShowHistory(newValue);
     location.reload();
   }
-
   function toggleDarkMode(): void {
     const newValue: boolean = !darkMode;
     localStorage.setItem("dark-mode", JSON.stringify(newValue));
     setDarkMode(newValue);
+
     if (newValue) {
-      document.documentElement.classList.add("dark");
+      document.body.classList.add("bg-slate-950");
+      document.body.classList.remove("bg-slate-400");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.body.classList.add("bg-slate-400");
+      document.body.classList.remove("bg-slate-950");
     }
     location.reload();
   }
