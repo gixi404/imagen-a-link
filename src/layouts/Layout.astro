@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Imagen a Link</title>
-    <script type="module" is:inline src="/node_modules/@moaqzdev/toast"
-    ></script>
     <script>
       try {
         const dark: string = JSON.parse(
           localStorage.getItem("dark-mode") ?? "true"
         );
-        if (dark) {
-          document.body.classList.add("bg-slate-950");
-        } else {
-          document.documentElement.classList.remove("bg-slate-400");
+        if (!dark) {
+          document.body.classList.add("!bg-slate-300");
         }
       } catch {}
     </script>
@@ -40,7 +36,7 @@
     />
   </head>
   <body
-    class="pb-12 flex flex-col items-center justify-center h-full w-full font-mono gap-y-12"
+    class="bg-slate-950 pb-12 flex flex-col items-center justify-center h-full w-full font-mono gap-y-12"
   >
     <moaqz-toaster position="top-right"></moaqz-toaster>
     <slot />
