@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Imagen a Link</title>
+    <script type="module" is:inline src="/node_modules/@moaqzdev/toast"
+    ></script>
+    <script>
+      try {
+        const dark: string = JSON.parse(
+          localStorage.getItem("dark-mode") ?? "true"
+        );
+        if (dark) {
+          document.body.classList.add("bg-slate-950");
+        } else {
+          document.documentElement.classList.remove("bg-slate-400");
+        }
+      } catch {}
+    </script>
+    <meta name="description" content="Convierte imagenes a links" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Imagen a Link" />
+    <meta property="og:description" content="Convierte imagenes a links" />
+    <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/images/7cd029da-7133-406a-b5f4-7f7890241061.png?token=rAly7uzDNIqUlBr7BhuT6rxd0hRL0baEmCQ9HkB2KT8&height=703&width=1200&expires=33287310417"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:domain"
+      content={String(Astro.url).split("//")[1]}
+    />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content="Imagen a Link" />
+    <meta name="twitter:description" content="Convierte imagenes a links" />
+    <meta
+      name="twitter:image"
+      content="https://opengraph.b-cdn.net/production/images/7cd029da-7133-406a-b5f4-7f7890241061.png?token=rAly7uzDNIqUlBr7BhuT6rxd0hRL0baEmCQ9HkB2KT8&height=703&width=1200&expires=33287310417"
+    />
+  </head>
+  <body
+    class="pb-12 flex flex-col items-center justify-center h-full w-full font-mono gap-y-12"
+  >
+    <moaqz-toaster position="top-right"></moaqz-toaster>
+    <slot />
+  </body>
+</html>
