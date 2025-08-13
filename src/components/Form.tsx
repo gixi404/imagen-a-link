@@ -7,10 +7,11 @@ import SettingPopup from "./SettingPopup";
 import { toast } from "@moaqzdev/toast/utils";
 import type { Component, Timer } from "./MainApp";
 
-const API_CLOUDINARY: string =
-  "https://api.cloudinary.com/v1_1/dgs55s8qh/image/upload";
-const DEFAULT_COVER_URL: string =
-  "https://res.cloudinary.com/dgs55s8qh/image/upload/v1751309836/pzhmk6aissc5a4kkpxmt.jpg";
+const UPLOAD_PRESET: string = String(import.meta.env.PUBLIC_UPLOAD_PRESET),
+  API_CLOUDINARY: string =
+    "https://api.cloudinary.com/v1_1/ducssjlkl/image/upload",
+  DEFAULT_COVER_URL: string =
+    "https://res.cloudinary.com/ducssjlkl/image/upload/v1751309836/pzhmk6aissc5a4kkpxmt.jpg";
 
 export default function Form({ addToHistory }: Props): Component {
   const defaultUrl: string = String(location),
@@ -53,7 +54,7 @@ export default function Form({ addToHistory }: Props): Component {
 
     try {
       formData.append("file", acceptedFiles[0]);
-      formData.append("upload_preset", "arjhb0vs");
+      formData.append("upload_preset", UPLOAD_PRESET);
       const res: Response = await fetch(API_CLOUDINARY, {
         method: "POST",
         body: formData,
